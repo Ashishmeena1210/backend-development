@@ -1,13 +1,11 @@
 import dns from "dns";
-import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
+import { app } from "./app.js";
 
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 dotenv.config();
-
-const app = express();
 
 connectDB()
     .then(() => {
@@ -20,7 +18,6 @@ connectDB()
     .catch((err) => {
         console.log("MongoDB connection failed:", err);
     });
-
 
 
 // const app = express();
